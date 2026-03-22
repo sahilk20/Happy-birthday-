@@ -3,24 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Khushi!</title>
+    <title>Happy Birthday!</title>
     <style>
-        body { margin: 0; padding: 0; font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); height: 100vh; display: flex; justify-content: center; align-items: center; text-align: center; color: #2c3e50; }
-        .card { background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 30px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); width: 80%; }
-        h1 { color: #2980b9; font-size: 2.2rem; }
-        p { font-size: 1.1rem; line-height: 1.5; color: #34495e; }
-        .emoji { font-size: 50px; margin-bottom: 10px; }
-        .sparkle { animation: blink 1.5s infinite; color: #f1c40f; font-weight: bold; }
-        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f0c29; /* Dark elegant background */
+            background: linear-gradient(to bottom, #24243e, #302b63, #0f0c29);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            padding: 40px 20px;
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 85%;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            animation: float 3s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        h1 {
+            color: #ff9a9e;
+            font-size: 2.5rem;
+            margin: 10px 0;
+            text-shadow: 0 0 10px #ff9a9e;
+        }
+
+        p {
+            color: #ffffff;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .cake {
+            font-size: 60px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Floating background hearts */
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.3);
+            font-size: 20px;
+            animation: move 6s linear infinite;
+            bottom: -50px;
+        }
+
+        @keyframes move {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
+
     <div class="card">
-        <div class="emoji">✨🎂✨</div>
-        <h1>Happy Birthday, Khushi!</h1>
-        <p>To my amazing friend Khushi, may your day be filled with as much laughter and "Khushi" (happiness) as you bring to everyone around you!</p>
-        <p class="sparkle">Have a magical year ahead! ✨</p>
+        <span class="cake">🎂</span>
+        <h1>Happy Birthday, Khushi!</h1> 
+        <p>Wishing you a day filled with love, laughter, and all the things that make you happy. You deserve the world!</p>
+        <p style="color: #f1c40f;">✨ You are special ✨</p>
     </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => { heart.remove(); }, 6000);
+        }
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
-
